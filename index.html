@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Glamour's Profile Card</title>
+	</head>
+	<body>
+		<article data-testid="test-profile-card">
+			<figure>
+				<img
+					src="./profile.jpeg"
+					alt="Photo of Glamour"
+					data-testid="test-user-avatar"
+				/>
+			</figure>
+			<header>
+				<h2 id="username" data-testid="test-user-name">
+					Glamour Animu
+				</h2>
+				<p id="title">Frontend Developer Intern</p>
+			</header>
+			<!-- Add necessary arial label -->
+
+			<p data-testid="test-user-bio" id="bio">
+				I love to write code that makes people's lives more worthwhile.
+			</p>
+			<!-- Hobbies/dislikes each inside <section> and presented as <ul>/<li> -->
+			<div id="preference-list">
+				<section
+					id="hobbies-list "
+					data-testid="test-user-hobbies"
+					class="preference"
+				>
+					<h3>Hobbies</h3>
+					<ul class="border">
+						<li>Vibe-coding</li>
+						<li>Learning new meal recipes</li>
+						<li>Watching kdramas</li>
+						<li>Study my Bible</li>
+						<li>Making money</li>
+						<li>Starting a new dev project</li>
+					</ul>
+				</section>
+				<section id="empty"></section>
+				<section
+					id="dislikes-list"
+					data-testid="test-user-dislikes"
+					class="preference"
+				>
+					<h3>Dislikes</h3>
+					<ul>
+						<li>Being broke</li>
+						<li>
+							Debugging a specific program for a protracted period
+						</li>
+						<li>Not knowing what to do about something</li>
+						<li>Laziness</li>
+					</ul>
+				</section>
+			</div>
+			<!-- Social links inside a <nav> or <ul> -->
+			<nav data-testid="test-user-social-links">
+				<li>
+					<a
+						data-testid="test-user-social-x"
+						href="https://x.com/glamour_ani"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img
+							class="logo"
+							src="./icons/x-logo.svg"
+							srcset=""
+							alt="x-logo"
+						/>
+					</a>
+				</li>
+				<li></li>
+					<a data-testid="test-user-social-instagram"
+                        href="https://instagram.com/glamour_ani"
+						target="_blank"
+						rel="noopener noreferrer">
+						<img
+							class="logo"
+							src="./icons/instagram.svg"
+							srcset=""
+							alt="instagram-logo"
+						/>
+					</a>
+				</li>
+				<li>
+					<a data-testid="test-user-social-github"
+                        href="https://github.com/glamourAni"
+						target="_blank"
+						rel="noopener noreferrer">
+
+						<img
+							class="logo"
+							src="./icons/github.svg"
+							alt="github-logo"
+							srcset=""
+						/>
+					</a>
+				</li>
+			</nav>
+
+			<div id="time-div" data-testid="test-user-time">
+				Current time: <span id="current-time"></span>
+			</div>
+			<!-- All interactive items (links/buttons) must be keyboard-focusable. -->
+		</article>
+
+        <script src="index.js"></script>
+	</body>
+</html>

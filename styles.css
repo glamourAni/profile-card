@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #bfc6d4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+article {
+	font-family: "Poppins", sans-serif;
+	background: #fff;
+	border-radius: 20px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 45rem;
+	padding: 1.5rem;
+	position: relative;
+}
+article > figure > img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 1rem;
+	border: 3px solid #0c69bb;
+}
+article > figure {
+	margin-bottom: 0;
+}
+#username {
+	font-size: 2rem;
+	margin: 0;
+	color: #333;
+}
+#title {
+	margin-top: 0;
+	font-size: 1rem;
+	color: #777;
+}
+#bio {
+	font-size: 1.1rem;
+	color: #555;
+	margin: 0.5rem 0 1.2rem;
+}
+#preference-list {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: 0.4em;
+}
+.preference {
+	flex: 1 1 80px;
+}
+.preference > h3 {
+	color: #023859;
+	padding-left: 2.6rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+	/* border-bottom: 1px solid #baccd5; */
+}
+ul,
+li {
+	list-style-type: none;
+}
+.preference ul {
+	padding-left: 0;
+	font-size: 1.1rem;
+}
+.preference ul li {
+	margin-bottom: 6px;
+	color: #2b2b2b;
+	/* background-color: #c6c8ca; */
+}
+.border {
+	border-right: 3px solid #b1b1b1;
+}
+
+nav {
+	position: absolute;
+	top: 80px;
+	right: 50px;
+}
+
+.logo {
+	height: 30px;
+	width: 30px;
+	margin: 5px 0;
+	border-radius: 50%;
+	padding: 0.2em;
+	border: 1px solid transparent;
+}
+.logo:hover,
+.logo:focus {
+	border: 1px solid #a7ebf2;
+	transform: translateY(-1px);
+}
+#time-div {
+	background-color: #d2f1f5;
+	padding: 0.5em 1em;
+	font-size: 1.1rem;
+	font-style: italic;
+	font-weight: 500;
+}
+
+@media (max-width: 800px) {
+	article {
+		max-width: 38em;
+	}
+}
+@media (max-width: 550px) {
+	article {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: #fff;
+		border-radius: 20px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		width: 90%;
+		max-width: 600px;
+		padding: 2rem 1.5rem;
+		text-align: center;
+		margin: 2rem auto;
+		transition: all 0.3s ease;
+	}
+	article > figure > img {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-bottom: 1rem;
+	}
+	#preference-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 1rem;
+		width: 100%;
+	}
+
+	.preference {
+		background: #f9fafb;
+		border-radius: 12px;
+		padding: 0.5rem;
+		text-align: left;
+	}
+
+	.preference h3 {
+		margin-bottom: 0.3rem;
+		font-size: 1rem;
+	}
+	.border {
+		border: none;
+	}
+	nav {
+		position: static;
+		display: flex;
+	}
+}
