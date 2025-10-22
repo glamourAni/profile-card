@@ -10,7 +10,7 @@
 		<article data-testid="test-profile-card">
 			<figure>
 				<img
-					src="./profile.jpeg"
+					src="icons/profile.jpeg"
 					alt="Photo of Glamour"
 					data-testid="test-user-avatar"
 				/>
@@ -22,10 +22,49 @@
 				<p id="title">Frontend Developer Intern</p>
 			</header>
 			<!-- Add necessary arial label -->
+			<section id="details">
+				<div>
+					<span class="icon"
+						><img
+							src="./icons/info_circle.svg"
+							alt="info icon"
+							srcset=""
+						/>
+					</span>
+					<p data-testid="test-user-bio" id="bio">
+						I love to write code that makes people's lives more
+						worthwhile.
+					</p>
+				</div>
+				<div>
+					<span class="icon">
+						<img
+							src="./icons/user_circle.svg"
+							alt="about-me-logo"
+							srcset=""
+						/>
+					</span>
+					<p id="about-me">
+						<a
+							href="pages/about.html"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							About Me</a
+						>
+					</p>
+				</div>
+				<div>
+					<span class="icon">
+						<img src="./icons/stopwatch.svg" alt="time icon" />
+					</span>
 
-			<p data-testid="test-user-bio" id="bio">
-				I love to write code that makes people's lives more worthwhile.
-			</p>
+					<p id="time-div" data-testid="test-user-time">
+						Current time:
+						<span id="current-time"></span>
+					</p>
+				</div>
+			</section>
 			<!-- Hobbies/dislikes each inside <section> and presented as <ul>/<li> -->
 			<div id="preference-list">
 				<section
@@ -77,11 +116,13 @@
 						/>
 					</a>
 				</li>
-				<li></li>
-					<a data-testid="test-user-social-instagram"
-                        href="https://instagram.com/glamour_ani"
+				<li>
+					<a
+						data-testid="test-user-social-instagram"
+						href="https://instagram.com/glamour_ani"
 						target="_blank"
-						rel="noopener noreferrer">
+						rel="noopener noreferrer"
+					>
 						<img
 							class="logo"
 							src="./icons/instagram.svg"
@@ -91,11 +132,12 @@
 					</a>
 				</li>
 				<li>
-					<a data-testid="test-user-social-github"
-                        href="https://github.com/glamourAni"
+					<a
+						data-testid="test-user-social-github"
+						href="https://github.com/glamourAni"
 						target="_blank"
-						rel="noopener noreferrer">
-
+						rel="noopener noreferrer"
+					>
 						<img
 							class="logo"
 							src="./icons/github.svg"
@@ -106,12 +148,18 @@
 				</li>
 			</nav>
 
-			<div id="time-div" data-testid="test-user-time">
-				Current time: <span id="current-time"></span>
+			<div id="contact-us">
+				<a
+					href="/pages/contact.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Contact Us</a
+				>
 			</div>
+
 			<!-- All interactive items (links/buttons) must be keyboard-focusable. -->
 		</article>
 
-        <script src="index.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>

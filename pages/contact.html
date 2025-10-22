@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../styles.css" />
+		<title>Contact Us</title>
+	</head>
+	<body>
+		<div id="form-wrapper" data-testid="test-contact-wrapper">
+			<h2>Send us a message</h2>
+
+			<form action="">
+				<div class="shared-input">
+					<!-- Full name -->
+					<div class="name-container">
+						<label for="name">Full Name:</label>
+						<input
+							class="input"
+							type="text"
+							name="name"
+							data-testid="test-contact-name"
+							id="name"
+							placeholder="John Doe"
+							required
+							oninput="clearError(event)"
+						/>
+						<p
+							data-testid="test-contact-error-name"
+							class="error-msg"
+						></p>
+					</div>
+					<!-- Email -->
+					<div class="email-container">
+						<label for="email">Email:</label>
+						<input
+							class="input"
+							type="email"
+							name="email"
+							id="email"
+							data-testid="test-contact-email"
+							placeholder="johnd@mail.com"
+							required
+							oninput="clearError(event)"
+						/>
+						<p
+							data-testid="test-contact-error-email"
+							class="error-msg"
+						></p>
+					</div>
+				</div>
+				<!-- Subject -->
+				<label for="subject">Subject:</label>
+				<input
+					class="input"
+					type="text"
+					name="subject"
+					id="subject"
+					data-testid="test-contact-subject"
+					placeholder="any subject"
+					required
+					oninput="clearError(event)"
+				/>
+				<p
+					data-testid="test-contact-error-subject"
+					class="error-msg"
+				></p>
+				<!-- Message -->
+				<label for="message">Message:</label>
+				<textarea
+					class="input"
+					name="message"
+					id="message"
+					data-testid="test-contact-message"
+					minlength="10"
+					required
+					oninput="clearError(event)"
+				></textarea>
+				<p
+					data-testid="test-contact-error-message"
+					class="error-msg"
+				></p>
+				<button
+					type="submit"
+					id="submit"
+					data-testid="test-contact-submit"
+				>
+					Submit
+				</button>
+			</form>
+
+			<div id="success-card" data-testid="test-contact-success">
+				<div class="popup">
+					<img src="" alt="Success Logo" />
+
+					<p id="success-text">Submission Successful!</p>
+					<p id="small-success-text">
+						We will get back to you as soon as possible.
+					</p>
+
+					<button id="done">Done</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- JS Here -->
+		<script>
+			const submitBtn = document.getElementById("submit")
+			const messageBox = document.getElementById("message")
+			const inputFields = document.querySelectorAll(".input")
+			const successDiv = document.getElementById("success-card")
+			const successDivDone = document.getElementById("done")
+			const errorMessageList =
+				document.getElementsByClassName("error-msg")
+
+			successDivDone.addEventListener("click", () => {
+				inputFields.forEach((input) => {
+					input.value = ""
+				})
+
+				successDiv.style.display = "none"
+			})
+
+			const clearError = (e) => {
+				const element = e.target
+
+				const inputID = element.id
+				const errorMsgID = `test-contact-error-${inputID}`
+				const errorMessage = [...errorMessageList].find(
+					(msg) => msg.getAttribute("data-testid") === errorMsgID
+				)
+
+				// clear error border
+				element.classList.remove("error-border")
+				element.classList.add("active")
+
+				//clear error message
+				errorMessage.textContent = ""
+			}
+
+			submitBtn.addEventListener("click", (event) => {
+				event.preventDefault()
+
+				let isValidForm = true // form is valid before validation checks
+
+				inputFields.forEach((input) => {
+					console.log(input)
+					// Define input id and corresponding error message via the data-testid
+					const inputID = input.id
+					const errorMsgID = `test-contact-error-${inputID}`
+					const errorMessage = [...errorMessageList].find(
+						(msg) => msg.getAttribute("data-testid") === errorMsgID
+					)
+
+					if (!input.value.trim()) {
+						input.classList.add("error-border")
+						if (errorMessage) {
+							errorMessage.textContent = `${inputID[0].toUpperCase()}${inputID.substring(
+								1
+							)} is required`
+							isValidForm = false
+						}
+					} else if (
+						input.getAttribute("id") === "message" &&
+						input.value.length < 10
+					) {
+						input.classList.add("error-border")
+
+						errorMessage.textContent = `${inputID[0].toUpperCase()}${inputID.substring(
+							1
+						)} must be at least 10 characters`
+						isValidForm = false
+					}
+				})
+				if (isValidForm) {
+					successDiv.style.display = "block"
+				}
+			})
+		</script>
+	</body>
+</html>
